@@ -1,0 +1,50 @@
+@font-face {
+  font-family: 'Source Sans Pro';
+  src: url('fonts/SourceSansPro-Bold.eot');
+  src: local('Source Sans Pro Bold'), local('fonts/SourceSansPro-Bold'),
+    url('fonts/SourceSansPro-Bold.eot?#iefix') format('embedded-opentype'),
+    url('fonts/SourceSansPro-Bold.woff2') format('woff2'),
+    url('fonts/SourceSansPro-Bold.woff') format('woff'),
+    url('fonts/SourceSansPro-Bold.ttf') format('truetype'),
+    url('fonts/SourceSansPro-Bold.svg#SourceSansPro-Bold') format('svg');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --main-color: #521d3a;
+  --main-color-light: #8c3c4f;
+}
+
+* {
+  font-family: Source Sans Pro, sans-serif;
+}
+
+button {
+  font-size: 1em;
+  padding: .5em;
+  text-align: center;
+  min-width: 5em;
+  background-color: var(--main-color-light);
+  color: white;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  margin: 0.5em 0;
+}
+
+input[type="text"] {
+  font-size: 1em;
+  padding: .5em;
+  margin-top: 0.5em;
+  border: 2px solid var(--main-color);
+  border-radius: 4px;
+  width: 300px;
+}
+
+.badge-container {
+  width: 520px;
+  height: 520px;
+  margin-top: 20px;
+}
