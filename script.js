@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', function () {
   document.querySelector('form').addEventListener('submit', function (e) {
     e.preventDefault();
-    document.getElementById('bottomTextPath').textContent = document.getElementById('textInput').value;
+    document.getElementById('bottomTextPath').textContent = document.getElementById('textInput').value.toUpperCase();
     document.getElementById("downloadLinkPng").style.display = 'none';
   });
 });
