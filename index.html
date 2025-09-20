@@ -391,10 +391,29 @@
     </svg>
   </div>
 
+  <div class="pngDownload">
+    <label>
+      <input type="radio" name="badgeSize" value="small">
+      Small
+    </label>
+    <label>
+      <input type="radio" name="badgeSize" value="medium" checked>
+      Medium
+    </label>
+    <label>
+      <input type="radio" name="badgeSize" value="large">
+      Large
+    </label>
+    <label>
+      <input type="radio" name="badgeSize" value="xlarge">
+      Extra-Large
+    </label>
+    <br />
+    <button id="generateButton">Generate PNG</button>
+    <a href='' download="my_badge.png" id="downloadLinkPng" style="display:none;">Download PNG</a>
+  </div>
   <a href='' download="my_badge.svg" id="downloadLink" onclick="updateDownloadLink()">Download as SVG</a>
-  <br />
-  <button onclick="svgToPng()">Generate PNG</button>
-  <a href='' download="my_badge.png" id="downloadLinkPng" style="display:none;">Download as PNG</a>
+
 
 </body>
 

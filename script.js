@@ -4,11 +4,15 @@ document.addEventListener('DOMContentLoaded', function () {
     document.getElementById('bottomTextPath').textContent = document.getElementById('textInput').value.toUpperCase();
     document.getElementById("downloadLinkPng").style.display = 'none';
   });
+  const btn = document.getElementById("generateButton")
+    btn.addEventListener('click', () => {
+      const badgeSize = document.querySelector('input[name="badgeSize"]:checked').value;
+      svgToPng(badgeSize);
+    });
 });
 
 function getSvgUrl() {
   const obj = document.getElementById("badge").outerHTML;
-  console.log(obj);
   const blob = new Blob([obj], { type: 'image/svg+xml' });
   let url = URL.createObjectURL(blob);
   return url;
@@ -19,9 +23,18 @@ function updateDownloadLink() {
   document.getElementById("downloadLink").href = url;
 }
 
-function svgToPng() {
+function svgToPng(badgeSize) {
+  let size = 3000;
+  if (badgeSize === "small") {
+    size = 600;
+  } else if (badgeSize === "medium") {
+    size = 900;
+  } else if (badgeSize === "large") {
+    size = 1500;
+  }
+
   const svg = document.getElementById("badge").outerHTML;
-  svg2png(svg, 1000, 1000).then(pngUrl => {
+  svg2png(svg, size, size).then(pngUrl => {
     console.log(pngUrl);
     document.getElementById("downloadLinkPng").href = pngUrl;
     document.getElementById("downloadLinkPng").style.display = 'inline';
@@ -32,9 +45,9 @@ async function svg2png(svg, width = 1000, height = 1000) {
   const img = new Image();
   img.src = `data:image/svg+xml;charset=utf-8,${encodeURIComponent(svg)}`;
 
+  // Wait for the image to load before drawing
   await new Promise((resolve, reject) => {
-    img.onload = resolve;
-    img.onerror = reject;
+    img.onload = setTimeout(() => { resolve(); }, 200); // Fallback in case onload doesn't fire;
   });
 
   const canvas = document.createElement("canvas");

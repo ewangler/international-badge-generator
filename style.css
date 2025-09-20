@@ -48,3 +48,10 @@ input[type="text"] {
   height: 520px;
   margin-top: 20px;
 }
+
+.pngDownload {
+  margin: 20px 0;
+  padding: 15px;
+  width: fit-content;
+  background-color: #521d3a92;
+}
